@@ -1,10 +1,15 @@
 package com.dayeeen.ui.components
 
 import android.R
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -127,4 +132,56 @@ fun BatikaraTextRegular(
 @Composable
 fun BatikaraTextRegularPreview() {
     BatikaraTextRegular()
+}
+
+@Composable
+fun BatikaraTextViewRow(
+    checked: Boolean = false,
+    onCheckedChange: (Boolean) -> Unit = {},
+    onTextClick: () -> Unit = {},
+    textLeft: String = "Remember me",
+    textRight: String = "Forgot Password?",
+) {
+    // This function is a placeholder for future implementation
+    // It can be used to create a row of text views with specific styling or behavior
+    Row (
+        modifier = Modifier
+            .padding(8.dp)
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween,
+
+    ) {
+        BatikaraCheckbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            label = textLeft,
+            modifier = Modifier.weight(1f) // Ensures checkbox takes up remaining space
+        )
+
+        val annotatedString = buildAnnotatedString {
+            append(textRight)
+        }
+
+        ClickableText(
+            text = annotatedString,
+            style = TextStyle(
+                fontSize = 12.sp,
+                lineHeight = 18.sp,
+                fontWeight = FontWeight.Bold,
+                color = brown
+            ),
+            onClick = {
+                onTextClick()
+            },
+        )
+
+    }
+
+}
+
+@Preview
+@Composable
+fun BatikaraTextViewRowPreview() {
+    BatikaraTextViewRow()
 }
