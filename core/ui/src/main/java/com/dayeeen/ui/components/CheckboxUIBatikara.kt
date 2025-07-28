@@ -20,15 +20,15 @@ import com.dayeeen.ui.theme.white
 
 @Composable
 fun BatikaraCheckbox(
+    modifier: Modifier = Modifier,
     label: String = "Remember me",
     checked: Boolean = false,
     onCheckedChange: (Boolean) -> Unit = {},
-    modifier: Modifier = Modifier
 ){
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Checkbox(
             checked = checked,

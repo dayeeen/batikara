@@ -28,7 +28,6 @@ fun BatikaraButtonPrimary(
         enabled = true,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 10.dp, vertical = 12.dp) // Padding for the button
             .height(44.dp)
         ,
         color = ButtonDefaults.buttonColors(
