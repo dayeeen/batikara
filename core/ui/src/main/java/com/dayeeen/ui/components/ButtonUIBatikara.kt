@@ -19,7 +19,7 @@ import com.dayeeen.ui.theme.white
 
 @Composable
 fun BatikaraButtonPrimary(
-    text: String = "Login",
+    text: String,
     onClick: () -> Unit = { /* Default action */ },
 ){
     BatikaraBaseButton(
@@ -83,7 +83,7 @@ fun BatikaraButtonApple(
 @Preview
 @Composable
 fun BatikaraButtonPrimaryPreview() {
-    BatikaraButtonPrimary()
+    BatikaraButtonPrimary("Button Text")
 }
 
 @Preview

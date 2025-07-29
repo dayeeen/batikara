@@ -45,7 +45,7 @@ fun BatikaraBaseButton(
         // Content of the button can be added here
         // For example, you can add a Text composable inside the Button
          Text(
-             text = "LOGIN",
+             text = text,
              fontWeight = FontWeight.Bold
          )
     }
