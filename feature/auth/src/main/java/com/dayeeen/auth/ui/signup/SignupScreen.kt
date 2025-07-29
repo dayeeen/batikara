@@ -1,5 +1,6 @@
-package com.dayeeen.auth.ui.signin
+package com.dayeeen.auth.ui.signup
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,10 +14,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -38,7 +42,7 @@ import com.dayeeen.ui.theme.transparent
 import com.dayeeen.ui.theme.white
 
 @Composable
-fun SigninScreen(
+fun SignupScreen(
 
 ) {
     Box(
@@ -46,12 +50,12 @@ fun SigninScreen(
             .fillMaxSize()
         ) {
         // Background layer
-        androidx.compose.foundation.Image(
+        Image(
             painter = painterResource(id = R.drawable.bg_login), // Replace with your background resource
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth(),
-            contentScale = androidx.compose.ui.layout.ContentScale.Crop,
+            contentScale = ContentScale.Crop,
 
         )
         // Foreground content with white background and rounded corners
@@ -59,13 +63,13 @@ fun SigninScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter),
-            shape = androidx.compose.foundation.shape.RoundedCornerShape(
+            shape = RoundedCornerShape(
                 topStart = 36.dp,
                 topEnd = 36.dp,
                 bottomStart = 0.dp,
                 bottomEnd = 0.dp
             ),
-            colors = androidx.compose.material3.CardDefaults.cardColors(
+            colors = CardDefaults.cardColors(
                 containerColor = white
             ),
         ) {
@@ -78,10 +82,12 @@ fun SigninScreen(
 
 
             ) {
-                BatikaraTextHeader()
+                BatikaraTextHeader(
+                    text = "Create Your Batikara Account"
+                )
                 Spacer(modifier = Modifier.height(12.dp))
                 BatikaraTextRegular(
-                    text = "Reconnect with your saved items, AI recommendations, and your favorite local brands."
+                    text = "Join a movement to support local artisans and find batik pieces that match your unique style."
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 BatikaraTextLabel(
@@ -99,29 +105,23 @@ fun SigninScreen(
                 BatikaraEditText(
                     value = "Enter your password",
                 )
+                Spacer(modifier = Modifier.height(16.dp))
+                BatikaraTextLabel(
+                    text = "Confirm Password",
+                )
                 Spacer(modifier = Modifier.height(12.dp))
-                BatikaraTextViewRow()
-                Spacer(modifier = Modifier.height(12.dp))
+                BatikaraEditText(
+                    value = "Re-enter your password",
+                )
+                Spacer(modifier = Modifier.height(24.dp))
                 BatikaraButtonPrimary(
-                    text = "LOGIN",
-                    onClick = { /* Handle login click */ },
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraTextRegular(
-                    text = "Or continue with",
-                    color = transparent,
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    txtAlign = TextAlign.Center
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraButtonSocialRow(
-                    onClickGoogle = {},
-                    onClickFesnuk = {},
-                    onClickApple = {},
+                    "REGISTER",
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 BatikaraTextRegularWithClick(
+                    text = "Already have an account? ",
+                    textClick = "Sign In here",
+                    onClick = { /* Handle click */ },
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
                 )
@@ -136,8 +136,8 @@ fun SigninScreen(
     device = Devices.PIXEL_7
 )
 @Composable
-fun SigninScreenPreview(
+fun SignupScreenPreview(
 
 ) {
-    SigninScreen()
+    SignupScreen()
 }
