@@ -10,24 +10,48 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dayeeen.ui.R
 
 @Composable
 fun BatikaraImageViewClick(
     onClick: () -> Unit = {},
     color: Color = Color.Black,
-    imageVector: ImageVector = Icons.Default.ArrowBack,
+    drawableRes: Int? = null, // Untuk drawable
+    imageVector: ImageVector? = null, // Untuk ImageVector
     imageDescription: String = "Back",
     modifier: Modifier = Modifier.size(24.dp)
 ){
-    IconButton(onClick = { onClick }) {
-        Icon(
-            imageVector = imageVector,
-            contentDescription = imageDescription,
-            modifier = modifier,
-            tint = color
-        )
+    IconButton(onClick = onClick) { // Hapus kurung kurawal dari onClick
+        when {
+            drawableRes != null -> {
+                Icon(
+                    painter = painterResource(id = drawableRes),
+                    contentDescription = imageDescription,
+                    modifier = modifier,
+                    tint = color
+                )
+            }
+            imageVector != null -> {
+                Icon(
+                    imageVector = imageVector,
+                    contentDescription = imageDescription,
+                    modifier = modifier,
+                    tint = color
+                )
+            }
+            else -> {
+                // Default fallback
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = imageDescription,
+                    modifier = modifier,
+                    tint = color
+                )
+            }
+        }
     }
 }
 

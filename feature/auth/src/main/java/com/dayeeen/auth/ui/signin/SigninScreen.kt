@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Card
@@ -25,10 +26,14 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.dayeeen.auth.MainActivity.Screen
 import com.dayeeen.ui.R
 import com.dayeeen.ui.components.BatikaraButtonPrimary
 import com.dayeeen.ui.components.BatikaraButtonSocialRow
 import com.dayeeen.ui.components.BatikaraEditText
+import com.dayeeen.ui.components.BatikaraImageViewClick
 import com.dayeeen.ui.components.BatikaraTextHeader
 import com.dayeeen.ui.components.BatikaraTextLabel
 import com.dayeeen.ui.components.BatikaraTextRegular
@@ -39,12 +44,13 @@ import com.dayeeen.ui.theme.white
 
 @Composable
 fun SigninScreen(
-
+    navController: NavController = rememberNavController()
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-        ) {
+            .windowInsetsPadding(WindowInsets.systemBars) // Add this line
+    ) {
         // Background layer
         androidx.compose.foundation.Image(
             painter = painterResource(id = R.drawable.bg_login), // Replace with your background resource
@@ -53,6 +59,13 @@ fun SigninScreen(
                 .fillMaxWidth(),
             contentScale = androidx.compose.ui.layout.ContentScale.Crop,
 
+        )
+        BatikaraImageViewClick(
+            color = white,
+            drawableRes = R.drawable.arrow_back,
+            onClick = {
+                navController.popBackStack() // Navigate back to the previous screen
+            }
         )
         // Foreground content with white background and rounded corners
         Card(
@@ -124,6 +137,9 @@ fun SigninScreen(
                 BatikaraTextRegularWithClick(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
+                    onClick = {
+                        navController.navigate(Screen.AuthSignup.route) // Navigate to signup screen
+                    },
                 )
             }
         }

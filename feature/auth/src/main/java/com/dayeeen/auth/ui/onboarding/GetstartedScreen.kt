@@ -1,4 +1,4 @@
-package com.dayeeen.auth.ui.signup
+package com.dayeeen.auth.ui.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -8,11 +8,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -37,7 +37,6 @@ import com.dayeeen.ui.R
 import com.dayeeen.ui.components.BatikaraButtonPrimary
 import com.dayeeen.ui.components.BatikaraButtonSocialRow
 import com.dayeeen.ui.components.BatikaraEditText
-import com.dayeeen.ui.components.BatikaraImageViewClick
 import com.dayeeen.ui.components.BatikaraTextHeader
 import com.dayeeen.ui.components.BatikaraTextLabel
 import com.dayeeen.ui.components.BatikaraTextRegular
@@ -47,30 +46,21 @@ import com.dayeeen.ui.theme.transparent
 import com.dayeeen.ui.theme.white
 
 @Composable
-fun SignupScreen(
+fun GetstartedScreen(
     navController: NavController = rememberNavController()
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.systemBars) // Add this line
-
-    ) {
+        ) {
         // Background layer
         Image(
-            painter = painterResource(id = R.drawable.bg_login), // Replace with your background resource
+            painter = painterResource(id = R.drawable.bg_onboarding), // Replace with your background resource
             contentDescription = null,
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxHeight(),
             contentScale = ContentScale.Crop,
 
-        )
-        BatikaraImageViewClick(
-            color = white,
-            drawableRes = R.drawable.arrow_back,
-            onClick = {
-                navController.popBackStack() // Navigate back to the previous screen
-            }
         )
         // Foreground content with white background and rounded corners
         Card(
@@ -97,50 +87,20 @@ fun SignupScreen(
 
             ) {
                 BatikaraTextHeader(
-                    text = "Create Your Batikara Account"
+                    text = "Welcome to Batikara"
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 BatikaraTextRegular(
-                    text = "Join a movement to support local artisans and find batik pieces that match your unique style."
+                    text = "Discover how tradition meets technology.\nLet Batikara help you find your perfect batik style, fit, and story—powered by AI, rooted in culture."
                 )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraTextLabel(
-                    text = "Email",
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraEditText(
-                    value = "Enter your email",
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                BatikaraTextLabel(
-                    text = "Password",
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraEditText(
-                    value = "Enter your password",
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                BatikaraTextLabel(
-                    text = "Confirm Password",
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraEditText(
-                    value = "Re-enter your password",
-                )
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(36.dp))
                 BatikaraButtonPrimary(
-                    "REGISTER",
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                BatikaraTextRegularWithClick(
-                    text = "Already have an account? ",
-                    textClick = "Sign In here",
+                    text = "GET STARTED",
                     onClick = {
-                        navController.navigate(Screen.AuthSignin.route) // Navigate to Sign In screen
+                        navController.navigate(Screen.AuthSignin.route)
                     },
-                    modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Center,
                 )
+
             }
         }
 
@@ -152,8 +112,8 @@ fun SignupScreen(
     device = Devices.PIXEL_7
 )
 @Composable
-fun SignupScreenPreview(
+fun SigninScreenPreview(
 
 ) {
-    SignupScreen()
+    GetstartedScreen()
 }
