@@ -25,8 +25,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text("Batikara"),
+    return SafeArea(
+      child: Scaffold(
+        body: Text("Batikara", style: TextStyle(color: Colors.amber),),
+      ),
     );
   }
 }
