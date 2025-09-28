@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.Batikara" parent="Theme.Material3.DayNight">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">true</item>
-    </style>
-<!--    <style name="Theme.Batikara" parent="android:Theme.Material.Light.NoActionBar" />-->
-</resources>
