@@ -39,6 +39,13 @@ class AppText {
   static const String confirmPassword = "Confirm Password";
   static const String forgotPassword = "Forgot Password?";
 
+  // Home
+  static const String greeting = "Hello Dayen,";
+  static const String greetingSubtitle = "What’s your batik mood today?";
+  static const String recommend = "Recommended";
+
+
+
 }
 
 class AppTextStyle {
@@ -89,6 +96,12 @@ class AppTextStyle {
   static final regular = GoogleFonts.plusJakartaSans(
     fontWeight: FontWeight.w400,
     color: AppColors.black,
+  );
+  
+  static final small = GoogleFonts.plusJakartaSans(
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+    fontSize: 12,
   );
 }
 

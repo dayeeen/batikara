@@ -1,4 +1,5 @@
 import 'package:batikara/screens/auth/register_screen.dart';
+import 'package:batikara/screens/main_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'config/theme.dart';
@@ -20,8 +21,7 @@ class BatikaraApp extends StatelessWidget {
       routes: [
         GoRoute(
           path: '/',
-          // builder: (context, state) => const SplashScreen(),
-          builder: (context, state) => const RegisterScreen(),
+          builder: (context, state) => const SplashScreen(),
         ),
         GoRoute(
           path: '/login',
@@ -33,7 +33,7 @@ class BatikaraApp extends StatelessWidget {
         ),
         GoRoute(
           path: '/home',
-          builder: (context, state) => const HomeScreen(),
+          builder: (context, state) => HomeScreen(),
         ),
       ],
     );
