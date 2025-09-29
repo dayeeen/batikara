@@ -34,7 +34,7 @@ class BtkCategoryCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(_radius),
-              border: Border.all(color: AppColors.black.withOpacity(.08)),
+              border: Border.all(color: AppColors.black.withValues(alpha: 0.08)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

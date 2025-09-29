@@ -28,10 +28,8 @@ class _MainNavState extends State<MainNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // FAB tengah (action “Explore/Discover” sesuai mockup)
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // TODO: buka halaman Discover / Filter / AI Recs
           // Navigator.of(context).push(...);
         },
         backgroundColor: AppColors.gold,
@@ -107,7 +105,7 @@ class _NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = selected ? AppColors.gold : Colors.white.withOpacity(.85);
+    final color = selected ? AppColors.gold : Colors.white.withValues(alpha: 85);
     return InkResponse(
       onTap: onTap,
       radius: 28,

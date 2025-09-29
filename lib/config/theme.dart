@@ -116,7 +116,7 @@ class AppTheme {
         seedColor: AppColors.gold, // <— ganti ke gold
         primary: AppColors.gold,
         secondary: AppColors.brown,
-        background: AppColors.white,
+        surface: AppColors.white,
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,

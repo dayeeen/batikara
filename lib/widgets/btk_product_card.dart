@@ -29,7 +29,7 @@ class BtkProductCard extends StatelessWidget {
             boxShadow: const [
               BoxShadow(color: Color(0x14000000), blurRadius: 12, offset: Offset(0, 6)),
             ],
-            border: Border.all(color: Colors.black12.withOpacity(.06)),
+            border: Border.all(color: Colors.black12.withValues(alpha: 0.25)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -120,7 +120,7 @@ class _ColorDot extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         shape: BoxShape.circle,
-        border: Border.all(color: Colors.black12.withOpacity(.25)),
+        border: Border.all(color: Colors.black12.withValues(alpha: 0.25)),
       ),
     );
   }

@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
         },
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_rounded),    label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.bookmark_rounded),label: 'Saved'),
+          NavigationDestination(icon: Icon(Icons.chat_bubble_rounded),label: 'Chat'),
           NavigationDestination(icon: Icon(Icons.shopping_cart),   label: 'Cart'),
           NavigationDestination(icon: Icon(Icons.person_rounded),  label: 'Profile'),
         ],
